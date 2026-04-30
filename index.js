@@ -1,33 +1,38 @@
-/* KINDRED ECHO 
-   A bridge between design, philosophy, and code.
+/* 🕯️ KINDRED ECHO 
+   A digital bridge between modern noise and timeless wisdom.
+   Final Assignment - Unit 0 Foundations
 */
 
 // --- VALUES, DATA TYPES, AND OPERATIONS ---
-// We start with the user's name and their "confession" (input)
-let userName = "Stranger"; 
-let userThought = "I am feeling a bit stuck and uninspired today."; 
+// Initializing user state and data
+let userName = `Stranger`; 
+let userThought = `I am feeling a bit stuck and uninspired today.`; 
+let isEchoMatched = false;
 
 // --- BUILDING ARRAYS ---
-// These are the "libraries of wisdom" you've collected.
+// Group A: Deep & Philosophical (For when life feels "stuck" or "hard")
 let stoicLibrary = [
-  "You have power over your mind—not outside events. Realize this, and you will find strength.",
-  "The happiness of your life depends upon the quality of your thoughts.",
-  "Accept the things to which fate binds you, and love the people with whom fate brings you together."
+  `The forest is quiet, but it does not mean nothing is happening. Growth is often silent.`,
+  `You are the sky. Everything else—the weather, the storms—is just what passes through.`,
+  `The stars are only visible because of the darkness. Do not fear the shadows in your path.`
 ];
 
+// Group B: Artistic & Inspirational (For when the user feels "uninspired")
 let creativeLibrary = [
-  "Creativity is intelligence having fun.",
-  "You can’t use up creativity. The more you use, the more you have.",
-  "Everything you can imagine is real."
+  `A blank page is not a void; it is a door waiting for you to walk through it.`,
+  `Your eyes see the world, but your hands tell the world what they saw. Keep creating.`,
+  `Design is the silent ambassador of your soul. Speak clearly today.`
 ];
 
+// Group C: Peace & Calm (The default "echo" for everything else)
 let groundingLibrary = [
-  "Slow down. You are doing better than you think.",
-  "Nature does not hurry, yet everything is accomplished.",
-  "The present moment is the only time over which we have dominion."
+  `Take a breath. You are exactly where you are meant to be in this moment.`,
+  `Ink on paper, feet on grass. Remind yourself that you are real and you are here.`,
+  `The moon does not race to be full. It takes its time, and so should you.`
 ];
-// --- STRINGING CHARACTERS TOGETHER (The Greeting) ---
-// Using template literals to create a tactile, letter-style header
+
+// --- STRINGING CHARACTERS TOGETHER ---
+// Creating a tactile, designed header for the console output
 let letterHeader = `
 --------------------------------------------------
 | FROM: THE KINDRED ECHO                         |
@@ -36,43 +41,47 @@ let letterHeader = `
 `;
 console.log(letterHeader);
 
-// --- CONTROL STRUCTURES AND LOGIC (The Brain) ---
-let matchedEcho = "";
+// --- CONTROL STRUCTURES AND LOGIC ---
+let matchedEcho = ``;
 
 /* PSEUDOCODE:
-   1. Check keywords in the userThought.
-   2. If they mention "uninspired" or "creative", use the Creative Library.
-   3. If they mention "stuck" or "power", use the Stoic Library.
-   4. Default to the Grounding Library for everything else.
+   1. Analyze userThought for specific keywords.
+   2. Assign a quote from the corresponding library.
+   3. Update matching status.
 */
 
-if (userThought.includes("uninspired") || userThought.includes("creative")) {
-    matchedEcho = creativeLibrary[1]; // Pulls the "more you use, more you have" quote
-} else if (userThought.includes("stuck") || userThought.includes("hard")) {
+if (userThought.includes(`uninspired`) || userThought.includes(`creative`)) {
+    // --- USING ARRAYS ---
+    matchedEcho = creativeLibrary[1]; 
+    isEchoMatched = true;
+} else if (userThought.includes(`stuck`) || userThought.includes(`hard`)) {
     matchedEcho = stoicLibrary[0];
+    isEchoMatched = true;
 } else {
     matchedEcho = groundingLibrary[0];
+    isEchoMatched = true;
 }
 
 // --- WORKING WITH LOOPS ---
-// Simulating the "echo" effect by looping through the matched string
-console.log("Searching the archives for a kindred thought...");
+// Simulating a "searching" process for atmospheric effect
+console.log(`Searching the archives for a kindred thought...`);
 
 for (let i = 0; i < 3; i++) {
-    console.log("...echoing..."); 
+    console.log(`...echoing...`); 
 }
 
 // --- FINAL DESIGNED OUTPUT ---
+// Presenting the final "Echo" in a letter format using Template Literals
 let finalLetter = `
 "My dear ${userName}, 
 
 You mentioned: '${userThought}'
 
-Here is a thought to carry with you today:
+After reflecting, here is a thought to carry with you:
 > ${matchedEcho}
 
 Stay grounded."
 --------------------------------------------------
 `;
 
-console.log(finalLetter);
+console.log(finalLetter);.
