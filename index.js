@@ -26,3 +26,53 @@ let groundingLibrary = [
   "Nature does not hurry, yet everything is accomplished.",
   "The present moment is the only time over which we have dominion."
 ];
+// --- STRINGING CHARACTERS TOGETHER (The Greeting) ---
+// Using template literals to create a tactile, letter-style header
+let letterHeader = `
+--------------------------------------------------
+| FROM: THE KINDRED ECHO                         |
+| TO:   ${userName.toUpperCase()}                |
+--------------------------------------------------
+`;
+console.log(letterHeader);
+
+// --- CONTROL STRUCTURES AND LOGIC (The Brain) ---
+let matchedEcho = "";
+
+/* PSEUDOCODE:
+   1. Check keywords in the userThought.
+   2. If they mention "uninspired" or "creative", use the Creative Library.
+   3. If they mention "stuck" or "power", use the Stoic Library.
+   4. Default to the Grounding Library for everything else.
+*/
+
+if (userThought.includes("uninspired") || userThought.includes("creative")) {
+    matchedEcho = creativeLibrary[1]; // Pulls the "more you use, more you have" quote
+} else if (userThought.includes("stuck") || userThought.includes("hard")) {
+    matchedEcho = stoicLibrary[0];
+} else {
+    matchedEcho = groundingLibrary[0];
+}
+
+// --- WORKING WITH LOOPS ---
+// Simulating the "echo" effect by looping through the matched string
+console.log("Searching the archives for a kindred thought...");
+
+for (let i = 0; i < 3; i++) {
+    console.log("...echoing..."); 
+}
+
+// --- FINAL DESIGNED OUTPUT ---
+let finalLetter = `
+"My dear ${userName}, 
+
+You mentioned: '${userThought}'
+
+Here is a thought to carry with you today:
+> ${matchedEcho}
+
+Stay grounded."
+--------------------------------------------------
+`;
+
+console.log(finalLetter);
