@@ -1,13 +1,16 @@
 /* 🕯️ KINDRED ECHO 
    A digital bridge between modern noise and timeless wisdom.
    Final Assignment - Unit 0 Foundations
+   --------------------------------------------------
+   Concept: Philosophical Branding & Reflection Engine
 */
 
 // --- VALUES, DATA TYPES, AND OPERATIONS ---
-// Initializing user state and data
+// Initializing the user's state and global application variables
 let userName = `Stranger`; 
 let userThought = `I am feeling a bit stuck and uninspired today.`; 
 let isEchoMatched = false;
+let echoCount = 0; // Tracking session activity (State Tracking)
 
 // --- BUILDING ARRAYS ---
 // Group A: Deep & Philosophical (For when life feels "stuck" or "hard")
@@ -41,29 +44,39 @@ let letterHeader = `
 `;
 console.log(letterHeader);
 
-// --- CONTROL STRUCTURES AND LOGIC ---
+// --- CONTROL STRUCTURES AND LOGIC (The Brain) ---
 let matchedEcho = ``;
 
 /* PSEUDOCODE:
-   1. Analyze userThought for specific keywords.
-   2. Assign a quote from the corresponding library.
-   3. Update matching status.
+   1. Validate: Ensure the user input is long enough to analyze.
+   2. Analyze: Look for keywords like "uninspired" or "stuck".
+   3. Assign: Pick the corresponding quote from the correct Array.
+   4. Feedback: Increment the echo counter for the session.
 */
 
-if (userThought.includes(`uninspired`) || userThought.includes(`creative`)) {
-    // --- USING ARRAYS ---
-    matchedEcho = creativeLibrary[1]; 
-    isEchoMatched = true;
-} else if (userThought.includes(`stuck`) || userThought.includes(`hard`)) {
-    matchedEcho = stoicLibrary[0];
-    isEchoMatched = true;
+// VALIDATION STEP: Checking string length
+if (userThought.length < 5) {
+    matchedEcho = `The silence is loud, but I need your thoughts to find a kindred match.`;
 } else {
-    matchedEcho = groundingLibrary[0];
-    isEchoMatched = true;
+    // KEYWORD ANALYSIS LOGIC
+    if (userThought.includes(`uninspired`) || userThought.includes(`creative`)) {
+        // --- USING ARRAYS ---
+        matchedEcho = creativeLibrary[1]; 
+        isEchoMatched = true;
+    } else if (userThought.includes(`stuck`) || userThought.includes(`hard`)) {
+        matchedEcho = stoicLibrary[0];
+        isEchoMatched = true;
+    } else {
+        matchedEcho = groundingLibrary[0];
+        isEchoMatched = true;
+    }
+    
+    // Incrementing session data
+    echoCount++;
 }
 
 // --- WORKING WITH LOOPS ---
-// Simulating a "searching" process for atmospheric effect
+// Creating an atmospheric delay effect in the console
 console.log(`Searching the archives for a kindred thought...`);
 
 for (let i = 0; i < 3; i++) {
@@ -71,7 +84,7 @@ for (let i = 0; i < 3; i++) {
 }
 
 // --- FINAL DESIGNED OUTPUT ---
-// Presenting the final "Echo" in a letter format using Template Literals
+// Using Template Literals to format the final reflection "letter"
 let finalLetter = `
 "My dear ${userName}, 
 
@@ -82,6 +95,7 @@ After reflecting, here is a thought to carry with you:
 
 Stay grounded."
 --------------------------------------------------
+[Session Echo #${echoCount} Generated Successfully]
 `;
 
-console.log(finalLetter);.
+console.log(finalLetter);
