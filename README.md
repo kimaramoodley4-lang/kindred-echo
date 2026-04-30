@@ -13,7 +13,7 @@ A philosophical reflection application that matches user thoughts with timeless 
 ## 📎 Required Documentation
 Per the final assignment submission requirements, you can find the complete **Practice: Dream Application** worksheet (including skill descriptions and developmental reflections) at the link below:
 
-👉 **[INSERT YOUR GOOGLE DOC LINK HERE]**
+👉 **[https://docs.google.com/document/d/1MLwkZY4CEHGke7tTXV0Wo4BTW0L_1ttYKt6SuJojEPw/edit?usp=drivesdk]**
 *(Note: Access is set to "Commenter" as per instructions.)*
 
 ---
